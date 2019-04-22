@@ -8,7 +8,8 @@ import {
   MatButtonModule,
   MatCheckboxModule,
   MatCardModule,
-  MatGridListModule
+  MatGridListModule,
+  MatListModule
 } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardComponent } from './card/card.component';
@@ -25,7 +26,8 @@ import { CardComponent } from './card/card.component';
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
