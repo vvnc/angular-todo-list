@@ -1,7 +1,9 @@
 <mat-card>
-  <mat-list>
-    <mat-list-item role="listitem" *ngFor="let item of todoItems">
-      {{item}}
-    </mat-list-item>
-  </mat-list>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item role="listitem" *ngFor="let item of todoItems" class="list-item">
+        {{item}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
 </mat-card>
