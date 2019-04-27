@@ -1,8 +1,14 @@
 <mat-card>
   <mat-card-content>
     <mat-list>
-      <mat-list-item role="listitem" *ngFor="let item of todoItems" class="list-item">
-        {{item}}
+      <mat-list-item role="listitem"
+        *ngFor="let item of todoItems"
+        class="list-item">
+        <div>
+          <mat-checkbox>
+            {{item}}
+          </mat-checkbox>
+        </div>
       </mat-list-item>
     </mat-list>
   </mat-card-content>

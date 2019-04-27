@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
     this.todoItems = new Array(length);
     for (let i = 0; i < length; i++) {
       this.todoItems[i] = CardComponent.lorem
-        .generateWords(Math.floor(Math.random() * 20));
+        .generateWords(Math.floor(Math.random() * 10));
     }
 
     CardComponent.lorem.generateWords(1);
