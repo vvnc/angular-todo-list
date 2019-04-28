@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../todo.service';
+import { TodoList } from '../todo-list';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,15 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  private cards: any[] = [];
-
-  constructor() {
+  constructor(private service: TodoService) {
   }
 
   ngOnInit() {
   }
 
   addNewCard() {
-    this.cards.unshift(null);
+    this.service.addNewList(new TodoList());
   }
 }

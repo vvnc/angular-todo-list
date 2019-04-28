@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TodoList } from '../todo-list';
 
 @Component({
   selector: 'app-card',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  private todoItems: string[] = [];
+  @Input() todoList: TodoList;
 
   constructor() {
   }
@@ -15,7 +16,7 @@ export class CardComponent implements OnInit {
   }
 
   addTodoItem() {
-    this.todoItems.push("")
+    this.todoList.addNewItem('', false);
   }
 
 }

@@ -9,11 +9,11 @@
         </button>
       </div>
       <mat-list>
-        <mat-list-item role="listitem" *ngFor="let item of todoItems">
+        <mat-list-item role="listitem" *ngFor="let item of todoList.getItems()">
           <div>
             <mat-checkbox>
               <mat-form-field class="form-field">
-                <input matInput value="{{ item }}">
+                <input matInput value="{{ item.value }}">
               </mat-form-field>
             </mat-checkbox>
           </div>
