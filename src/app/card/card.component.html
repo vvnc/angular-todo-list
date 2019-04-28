@@ -1,15 +1,24 @@
-<mat-card>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item role="listitem"
-        *ngFor="let item of todoItems"
-        class="list-item">
-        <div>
-          <mat-checkbox>
-            {{item}}
-          </mat-checkbox>
-        </div>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+<div class="card">
+  <mat-card>
+    <mat-card-content>
+      <div class="action-panel">
+        <button mat-mini-fab color="primary" (click)=addTodoItem()>
+          <mat-icon aria-label="Add new todo item">
+            add
+          </mat-icon>
+        </button>
+      </div>
+      <mat-list>
+        <mat-list-item role="listitem" *ngFor="let item of todoItems">
+          <div>
+            <mat-checkbox>
+              <mat-form-field class="form-field">
+                <input matInput value="{{ item }}">
+              </mat-form-field>
+            </mat-checkbox>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
