@@ -6,13 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  private cards: any[];
+  private cards: any[] = [];
 
   constructor() {
-    this.cards = new Array(Math.floor(Math.random() * 100));
   }
 
   ngOnInit() {
   }
 
+  addNewCard() {
+    this.cards.unshift(null);
+  }
 }

@@ -14,12 +14,14 @@ import {
 } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardComponent } from './card/card.component';
+import { CreateListCardComponent } from './create-list-card/create-list-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    CardComponent
+    CardComponent,
+    CreateListCardComponent
   ],
   imports: [
     BrowserModule,

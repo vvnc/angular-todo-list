@@ -1,4 +1,5 @@
 <div class="container">
+  <app-create-list-card (createTodoList)="addNewCard()"></app-create-list-card>
   <div *ngFor="let card of cards">
     <app-card></app-card>
   </div>
