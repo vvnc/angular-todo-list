@@ -1,6 +1,8 @@
 <div class="container">
-  <app-create-list-card (createTodoList)="addNewCard()"></app-create-list-card>
-  <div *ngFor="let todoList of this.service.getLists()">
-    <app-card [todoList]="todoList"></app-card>
+  <app-create-list-card (createTodoList)="onCreateNewTodoList()">
+  </app-create-list-card>
+  <div *ngFor="let todoList of this.service.getTodoLists()">
+    <app-card [todoList]="todoList" (deleteTodoList)="onDeleteTodoList($event)">
+    </app-card>
   </div>
 </div>

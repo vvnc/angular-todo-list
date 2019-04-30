@@ -2,7 +2,7 @@
   <mat-card>
     <mat-card-content>
       <div class="action-panel">
-        <button mat-mini-fab color="primary" (click)=addTodoItem()>
+        <button mat-mini-fab color="primary" (click)=onAddTodoItem()>
           <mat-icon aria-label="Add new todo item">
             add
           </mat-icon>
@@ -20,5 +20,12 @@
         </mat-list-item>
       </mat-list>
     </mat-card-content>
+    <mat-card-actions class="action-panel">
+      <button mat-button color="warn" (click)=onDeleteTodoList($event)>
+        <mat-icon aria-label="Add new todo item">
+          delete_forever
+        </mat-icon>
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>

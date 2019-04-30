@@ -13,7 +13,7 @@ export class CreateListCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddNewList() {
+  onCreateNewTodoList() {
     this.createTodoList.emit(null);
   }
 }

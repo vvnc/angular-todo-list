@@ -14,7 +14,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  addNewCard() {
-    this.service.addNewList(new TodoList());
+  onCreateNewTodoList() {
+    this.service.createNewTodoList();
+  }
+
+  onDeleteTodoList($event: any) {
+    this.service.deleteTodoListById($event.todoListId);
   }
 }

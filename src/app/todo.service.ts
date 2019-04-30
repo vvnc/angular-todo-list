@@ -5,16 +5,25 @@ import { TodoList } from './todo-list';
   providedIn: 'root'
 })
 export class TodoService {
+  private listsCurrentAutoincrementId = 0;
   private todoLists: TodoList[] = [];
 
   constructor() { }
 
-  addNewList(newList: TodoList) {
-    this.todoLists.unshift(newList);
-    console.log('Created new todo list');
+  createNewTodoList() {
+    this.todoLists.unshift(
+      new TodoList(this.listsCurrentAutoincrementId++));
   }
 
-  getLists() {
+  findTodoListById(id: number) {
+    this.todoLists.find((x) => x.id == id);
+  }
+
+  deleteTodoListById(id: number) {
+    this.todoLists = this.todoLists.filter((x) => x.id != id);
+  }
+
+  getTodoLists() {
     return this.todoLists;
   }
 }

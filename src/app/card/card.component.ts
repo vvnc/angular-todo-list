@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodoList } from '../todo-list';
 
 @Component({
@@ -8,6 +8,7 @@ import { TodoList } from '../todo-list';
 })
 export class CardComponent implements OnInit {
   @Input() todoList: TodoList;
+  @Output() deleteTodoList: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
@@ -15,8 +16,15 @@ export class CardComponent implements OnInit {
   ngOnInit() {
   }
 
-  addTodoItem() {
+  onAddTodoItem() {
     this.todoList.addNewItem('', false);
   }
 
+  // onDeleteTodoItem(id: number) {
+  //   this.todoList.deleteItemById(id);
+  // }
+
+  onDeleteTodoList($event: any) {
+    this.deleteTodoList.emit({ event: $event, todoListId: this.todoList.id });
+  }
 }
