@@ -1,4 +1,5 @@
 import { TodoItem } from './todo-item';
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 
 export class TodoList {
     private itemsCurrentAutoincrementId = 0;
@@ -24,5 +25,9 @@ export class TodoList {
 
     getItems() {
         return this.items;
+    }
+
+    moveItemInList(previousIndex: number, currentIndex: number) {
+        moveItemInArray(this.items, previousIndex, currentIndex);
     }
 }

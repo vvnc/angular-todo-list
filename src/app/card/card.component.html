@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" cdkDrag>
   <mat-card>
     <mat-card-content>
       <div class="action-panel">
@@ -8,22 +8,32 @@
           </mat-icon>
         </button>
       </div>
-      <mat-list>
-        <mat-list-item role="listitem" *ngFor="let item of todoList.getItems()">
-          <div class="todo-item">
+      <div class="todo-list" cdkDropList
+        (cdkDropListDropped)="onDropTodoItem($event)">
+        <div class="todo-item" *ngFor="let item of todoList.getItems()" cdkDrag>
+          <div class="drag-indicator">
+            <mat-icon>
+              drag_indicator
+            </mat-icon>
+          </div>
+          <div class="checkbox">
             <mat-checkbox>
-              <mat-form-field class="form-field">
-                <input matInput value="{{ item.value }}">
-              </mat-form-field>
             </mat-checkbox>
+          </div>
+          <div>
+            <mat-form-field class="form-field">
+              <input matInput value="{{ item.value }}">
+            </mat-form-field>
+          </div>
+          <div>
             <button mat-button color="warn" (click)=onDeleteTodoItem(item.id)>
               <mat-icon>
                 clear
               </mat-icon>
             </button>
           </div>
-        </mat-list-item>
-      </mat-list>
+        </div>
+      </div>
     </mat-card-content>
     <mat-card-actions class="action-panel">
       <button mat-button color="warn" (click)=onDeleteTodoList($event)>

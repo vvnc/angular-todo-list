@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { TodoList } from '../todo-list';
 
 @Component({
@@ -26,5 +27,9 @@ export class CardComponent implements OnInit {
 
   onDeleteTodoList($event: any) {
     this.deleteTodoList.emit({ event: $event, todoListId: this.todoList.id });
+  }
+
+  onDropTodoItem(event: CdkDragDrop<string[]>) {
+    this.todoList.moveItemInList(event.previousIndex, event.currentIndex)
   }
 }

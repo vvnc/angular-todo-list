@@ -8,10 +8,11 @@ import {
   MatButtonModule,
   MatCheckboxModule,
   MatCardModule,
-  MatListModule,
   MatInputModule,
-  MatIconModule,
+  MatIconModule
 } from '@angular/material';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardComponent } from './card/card.component';
 import { CreateListCardComponent } from './create-list-card/create-list-card.component';
@@ -26,12 +27,12 @@ import { CreateListCardComponent } from './create-list-card/create-list-card.com
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    DragDropModule,
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
-    MatListModule,
     MatInputModule,
-    MatIconModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
