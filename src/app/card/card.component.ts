@@ -20,9 +20,9 @@ export class CardComponent implements OnInit {
     this.todoList.addNewItem('', false);
   }
 
-  // onDeleteTodoItem(id: number) {
-  //   this.todoList.deleteItemById(id);
-  // }
+  onDeleteTodoItem(todoItemId: number) {
+    this.todoList.deleteItemById(todoItemId);
+  }
 
   onDeleteTodoList($event: any) {
     this.deleteTodoList.emit({ event: $event, todoListId: this.todoList.id });

@@ -5,8 +5,13 @@
     height: auto;
 }
 
-.list-item {
+/* .list-item {
     height: auto !important;
+} */
+
+.todo-item {
+    display: flex;
+    flex-direction: row;
 }
 
 .action-panel {
@@ -15,6 +20,6 @@
 }
 
 .form-field {
-    width: 200px;
+    width: 170px;
     margin-left: 10px;
 }

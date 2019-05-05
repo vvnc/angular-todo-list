@@ -10,19 +10,24 @@
       </div>
       <mat-list>
         <mat-list-item role="listitem" *ngFor="let item of todoList.getItems()">
-          <div>
+          <div class="todo-item">
             <mat-checkbox>
               <mat-form-field class="form-field">
                 <input matInput value="{{ item.value }}">
               </mat-form-field>
             </mat-checkbox>
+            <button mat-button color="warn" (click)=onDeleteTodoItem(item.id)>
+              <mat-icon>
+                clear
+              </mat-icon>
+            </button>
           </div>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
     <mat-card-actions class="action-panel">
       <button mat-button color="warn" (click)=onDeleteTodoList($event)>
-        <mat-icon aria-label="Add new todo item">
+        <mat-icon>
           delete_forever
         </mat-icon>
       </button>
