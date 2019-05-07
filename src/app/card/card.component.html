@@ -11,7 +11,7 @@
       <div class="todo-list" cdkDropList
         (cdkDropListDropped)="onDropTodoItem($event)">
         <div class="todo-item" *ngFor="let item of todoList.getItems()" cdkDrag>
-          <div class="drag-indicator">
+          <div class="drag-indicator" cdkDragHandle>
             <mat-icon>
               drag_indicator
             </mat-icon>

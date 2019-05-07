@@ -17,7 +17,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    cursor: move;
 }
 
 .action-panel {
@@ -31,6 +30,7 @@
 
 .drag-indicator {
     margin-right: 20px;
+    cursor: move;
 }
 
 .form-field {
