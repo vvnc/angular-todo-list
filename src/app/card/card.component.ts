@@ -37,8 +37,7 @@ export class CardComponent implements OnInit {
     this.todoList.updateItemCheckedById(todoItemId, $event.checked);
   }
 
-  onTodoItemValueChange($event: any, todoItemId: number) {
-    console.log($event.value);
-    this.todoList.updateItemValuedById(todoItemId, $event.value);
+  onTodoItemValueBlur($event: any, todoItemId: number) {
+    this.todoList.updateItemValuedById(todoItemId, $event.srcElement.value);
   }
 }
