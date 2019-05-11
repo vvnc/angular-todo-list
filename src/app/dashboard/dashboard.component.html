@@ -1,6 +1,12 @@
-<div class="container">
+<div class="todo-container">
   <app-create-list-card (createTodoList)="onCreateNewTodoList()">
   </app-create-list-card>
+  <mat-card cdkDrag>
+    <mat-card-title>Debug</mat-card-title>
+    <mat-card-content>
+      <pre>{{ this.service.getTodoLists() | json }}</pre>
+    </mat-card-content>
+  </mat-card>
   <div *ngFor="let todoList of this.service.getTodoLists()">
     <app-card [todoList]="todoList" (deleteTodoList)="onDeleteTodoList($event)">
     </app-card>

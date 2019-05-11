@@ -15,8 +15,8 @@ export class TodoList {
         this.items.push(new TodoItem(this.itemsCurrentAutoincrementId++, value, checked));
     }
 
-    findItemById(id: number) {
-        this.items.find((x) => x.id == id);
+    getItemById(id: number) {
+        return this.items.find((x) => x.id == id);
     }
 
     deleteItemById(id: number) {
@@ -29,5 +29,19 @@ export class TodoList {
 
     moveItemInList(previousIndex: number, currentIndex: number) {
         moveItemInArray(this.items, previousIndex, currentIndex);
+    }
+
+    updateItemCheckedById(id: number, checked: boolean) {
+        const item: TodoItem = this.getItemById(id);
+        if (item) {
+            item.checked = checked;
+        }
+    }
+
+    updateItemValuedById(id: number, value: string) {
+        const item: TodoItem = this.getItemById(id);
+        if (item) {
+            item.value = value;
+        }
     }
 }

@@ -32,4 +32,13 @@ export class CardComponent implements OnInit {
   onDropTodoItem(event: CdkDragDrop<string[]>) {
     this.todoList.moveItemInList(event.previousIndex, event.currentIndex)
   }
+
+  onTodoItemChecked($event: any, todoItemId: number) {
+    this.todoList.updateItemCheckedById(todoItemId, $event.checked);
+  }
+
+  onTodoItemValueChange($event: any, todoItemId: number) {
+    console.log($event.value);
+    this.todoList.updateItemValuedById(todoItemId, $event.value);
+  }
 }
