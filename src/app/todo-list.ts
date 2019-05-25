@@ -11,6 +11,13 @@ export class TodoList {
         this.id = id;
     }
 
+    copyFromObject(obj: any) {
+        this.itemsCurrentAutoincrementId = obj.itemsCurrentAutoincrementId;
+        this.id = obj.id;
+        this.items = obj.items.map(x => new TodoItem(x.id, x.value, x.checked));
+        return this;
+    }
+
     addNewItem(value: string, checked: boolean) {
         this.items.push(new TodoItem(this.itemsCurrentAutoincrementId++, value, checked));
     }

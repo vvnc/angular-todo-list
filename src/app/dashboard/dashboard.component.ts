@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../todo.service';
-import { TodoList } from '../todo-list';
 
 @Component({
   selector: 'app-dashboard',
