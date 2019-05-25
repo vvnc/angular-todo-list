@@ -17,7 +17,8 @@
             </mat-icon>
           </div>
           <div class="checkbox">
-            <mat-checkbox (change)="onTodoItemChecked($event, item.id)">
+            <mat-checkbox [checked]="item.checked"
+              (change)="onTodoItemChecked($event, item.id)">
             </mat-checkbox>
           </div>
           <div>
