@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { TodoList } from './todo-list';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { TodoList } from './todo-list';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ export class TodoService {
   private listsCurrentAutoincrementId = 0;
   private todoLists: TodoList[] = [];
   private api$: Observable<any>;
+  private todoLists$: Observable<TodoList[]>;
+  private autoIncrementStart$: Observable<number>;
 
   constructor() {
     this.api$ = Observable.create(observer => {
@@ -96,18 +99,28 @@ export class TodoService {
       // observer.next([]);
       observer.complete();
     });
+
+    this.todoLists$ = this.api$.pipe(
+      map(data => data.map(x => new TodoList(x.id).copyFromObject(x)))
+    );
+
+    this.autoIncrementStart$ = this.api$.pipe(
+      map(data => data.reduce((max, x) => x.id > max ? x.id : max, 0) + 1)
+    );
+
     this.api$.subscribe(data => {
       console.log('recieved from api stream:', data);
+    });
 
-      this.todoLists = data
-        .map(x => new TodoList(x.id).copyFromObject(x));
-
-      this.listsCurrentAutoincrementId = this.todoLists
-        .reduce((max, x) => x.id > max ? x.id : max, 0) + 1;
-
+    this.todoLists$.subscribe((lists: TodoList[]) => {
+      this.todoLists = lists;
       console.log('parsed data:', this.todoLists);
+    });
+
+    this.autoIncrementStart$.subscribe((start: number) => {
+      this.listsCurrentAutoincrementId = start
       console.log('auto incremented ids start from:', this.listsCurrentAutoincrementId);
-    })
+    });
   }
 
   createNewTodoList() {
