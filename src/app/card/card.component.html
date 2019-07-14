@@ -8,8 +8,47 @@
           </mat-icon>
         </button>
       </div>
+      <div>
+        <p><b>Реактивная форма:</b></p>
+      </div>
       <div class="todo-list" cdkDropList
         (cdkDropListDropped)="onDropTodoItem($event)">
+        <div>
+          <form [formGroup]="todoListForm">
+            <div formArrayName="items">
+              <div *ngFor=" let item of todoListArray.controls; let i=index"
+                class="todo-item" cdkDrag>
+                <div class="drag-indicator" cdkDragHandle>
+                  <mat-icon>
+                    drag_indicator
+                  </mat-icon>
+                </div>
+                <div class="checkbox">
+                  <mat-checkbox>
+                  </mat-checkbox>
+                </div>
+                <div class="todo-item">
+                  <mat-form-field class="form-field">
+                    <input type="text" matInput [formControlName]="i">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <button mat-button color="warn"
+                    (click)=onDeleteTodoItem(item.id)>
+                    <mat-icon>
+                      clear
+                    </mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <p><b>Форма на колбэках:</b></p>
+        </div>
+
         <div class="todo-item" *ngFor="let item of todoList.getItems()" cdkDrag>
           <div class="drag-indicator" cdkDragHandle>
             <mat-icon>
